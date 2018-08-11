@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+
+body {
+  background: #3c3c3c;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100 !important;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+}
+
+h1 {
+  font-weight: 100;
+  display: inline-block;
+  font-size: 64px;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+hr {
+  margin: 3rem 0;
+  border: 0;
+  height: 1px;
+  background: #999;
+}
+
+header {
+  padding: 3rem 0 0;
+}
+
+header .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .inner {
+
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+header .text {
+  display: inline-block;
+}
+
+ul.domains {
+  margin: 1rem 0 0 1rem;
+}
+
+ul.domains li {
+  display: inline-block;
+  text-transform: uppercase;
+  padding-left: 1.5rem;
+}
+
+ul.domains li:before {
+  font-family: 'FontAwesome';
+  content: '\f111';
+  font-size: 5px;
+  margin: 0 1.5rem 0 0;
+  vertical-align: middle;
+}
+
+ul.domains li:first-child {
+  padding-left: 0;
+}
+
+ul.domains li:first-child:before {
+  content: '';
+  margin: 0;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul.connect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 25rem;
+}
+
+ul.connect li {
+  display: inline-block;
+}

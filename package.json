@@ -1,0 +1,17 @@
+{
+  "name": "wwarby.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwarby/wwarby.com.git"
+  },
+  "author": "William Warby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wwarby/wwarby.com/issues"
+  },
+  "homepage": "https://github.com/wwarby/wwarby.com#readme"
+}
