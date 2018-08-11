@@ -1,1 +1,3 @@
 node_modules
+deploy.*.json
+!deploy.sample.json
