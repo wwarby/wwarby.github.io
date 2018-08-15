@@ -1,0 +1,25 @@
+@import 'variables';
+
+@mixin screensize($media) {
+  @if $media == xl {
+    @media only all and (min-width: $screen-size-lg) { @content; }
+  } @else if $media == lg {
+    @media only all and (min-width: $screen-size-md) { @content; }
+  } @else if $media == md {
+    @media only all and (min-width: $screen-size-sm) { @content; }
+  } @else if $media == sm {
+    @media only all and (min-width: $screen-size-xs) { @content; }
+  }
+}
+
+@mixin screensize-lte($media) {
+  @if $media == lg {
+    @media only all and (max-width: $screen-size-lg - 1) { @content; }
+  } @else if $media == md {
+    @media only all and (max-width: $screen-size-md - 1) { @content; }
+  } @else if $media == sm {
+    @media only all and (max-width: $screen-size-sm - 1) { @content; }
+  } @else if $media == xs {
+    @media only all and (max-width: $screen-size-xs - 1) { @content; }
+  }
+}

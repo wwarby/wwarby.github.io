@@ -1,27 +1,93 @@
 {
-  "name": "wwarby.com",
+  "name": "wwarby-com",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "deploy": "ts-node scripts/deploy prod"
-  },
+  "description": "wwarby.com website",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wwarby/wwarby.com.git"
   },
+  "keywords": [
+    "wwarby",
+    "wwarby.com",
+    "website",
+    "angular"
+  ],
   "author": "William Warby",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wwarby/wwarby.com/issues"
+    "url": "https://github.com/wwarby/wwarby.com"
   },
   "homepage": "https://github.com/wwarby/wwarby.com#readme",
+  "engines": {
+    "node": ">= 10.6.0",
+    "npm": ">= 5.0.0"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve -o",
+    "build": "ng build --extract-css --base-href /",
+    "build-prod": "ng build --prod --base-href /",
+    "deploy-dev": "npm run qc && npm run build && ts-node scripts/deploy dev && rimraf dist",
+    "deploy-test": "npm run qc && npm run build && ts-node scripts/deploy test && rimraf dist",
+    "deploy-prod": "npm run qc && npm run build-prod && ts-node scripts/deploy prod && rimraf dist",
+    "deploy-all": "npm run qc && npm run build && ts-node scripts/deploy dev && ts-node scripts/deploy test && npm run build-prod && ts-node scripts/deploy prod && rimraf dist",
+    "docker": "docker build -t wwarby-com . && docker run -d -p 4200:80 wwarby-com",
+    "sass-lint": "node ./node_modules/sass-lint/bin/sass-lint.js -c .sass-lint.yml -v -q",
+    "tslint": "ng lint wwarby-com --fix && ng lint wwarby-com --fix",
+    "lint": "npm run tslint && npm run sass-lint",
+    "test": "ng test --code-coverage",
+    "e2e": "ng e2e",
+    "qc": "npm run lint && ng test --browsers ChromeHeadless --watch false && ng e2e",
+    "sme": "ng build && source-map-explorer dist/main.bundle.js",
+    "ncu": "ncu -a -x typescript && npm update",
+    "cc": "open ./coverage/index.html"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^6.1.2",
+    "@angular/common": "^6.1.2",
+    "@angular/compiler": "^6.1.2",
+    "@angular/core": "^6.1.2",
+    "@angular/forms": "^6.1.2",
+    "@angular/http": "^6.1.2",
+    "@angular/platform-browser": "^6.1.2",
+    "@angular/platform-browser-dynamic": "^6.1.2",
+    "@angular/router": "^6.1.2",
+    "@fortawesome/fontawesome-free": "^5.2.0",
+    "angular-in-memory-web-api": "^0.6.1",
+    "core-js": "^2.5.7",
+    "normalize.css": "^8.0.0",
+    "rxjs": "^6.2.2",
+    "zone.js": "^0.8.26"
+  },
   "devDependencies": {
-    "@types/node": "^10.5.8",
-    "colors": "^1.3.1",
+    "@angular-devkit/build-angular": "~0.7.3",
+    "@angular/cdk": "^6.4.5",
+    "@angular/cli": "~6.1.3",
+    "@angular/compiler-cli": "^6.1.2",
+    "@angular/language-service": "^6.1.2",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "~10.7.0",
+    "codelyzer": "~4.4.4",
+    "coveralls": "^3.0.2",
     "fs": "0.0.1-security",
     "ftp-deploy": "^2.1.2",
-    "ts-node": "^7.0.0",
-    "typescript": "^3.0.1"
+    "jasmine-core": "~3.2.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^1.3.0",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7",
+    "protractor": "~5.4.0",
+    "sass-lint": "^1.12.1",
+    "source-map-explorer": "^1.6.0",
+    "ts-node": "^7.0.1",
+    "tslint": "~5.11.0",
+    "typescript": "~2.7.2"
   }
 }
