@@ -37,6 +37,10 @@ h1 {
   font-size: 36px;
 
   @include screensize(sm) {
+    font-size: 48px;
+  }
+
+  @include screensize(md) {
     font-size: 64px;
   }
 }
