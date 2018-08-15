@@ -99,28 +99,6 @@ header {
       border: 1px solid $callout-border-color;
     }
 
-    .tooltip {
-      visibility: hidden;
-      position: absolute;
-      width: 120px;
-      background-color: #555;
-      color: #fff;
-      text-align: center;
-      padding: 5px 0;
-      border-radius: 6px;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity .6s;
-      top: 135%;
-      left: 50%;
-      margin-left: -60px;
-
-      &:hover {
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-
     i.fab {
       font-size: 36px;
     }
