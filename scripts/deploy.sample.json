@@ -1,7 +1,7 @@
 {
   "host": "host.com",
   "port": 21,
-  "localRoot": "./src",
+  "localRoot": "./dist",
   "remoteRoot": "/host.com",
   "user": "user",
   "password": "password",
