@@ -36,7 +36,11 @@
   </div>
 </header>
 <div class="photography">
-    <img src="assets/photography/thumbnail/00002.jpg" class="left" alt="Copyright © William Warby" />
-    <img src="assets/photography/thumbnail/00007.jpg" class="middle" alt="Copyright © William Warby" />
-    <img src="assets/photography/thumbnail/00013.jpg" class="right" alt="Copyright © William Warby" />
+    <img src="assets/photography/thumbnail/00002.jpg" class="left" alt="Copyright © William Warby" (click)="openPhotographyGallery(1)" />
+    <img src="assets/photography/thumbnail/00007.jpg" class="middle" alt="Copyright © William Warby" (click)="openPhotographyGallery(6)" />
+    <img src="assets/photography/thumbnail/00016.jpg" class="right" alt="Copyright © William Warby" (click)="openPhotographyGallery(15)" />
 </div>
+<ngx-image-gallery
+  [images]="photographyGalleryImages"
+  [conf]="photographyGalleryConfig">
+</ngx-image-gallery>
