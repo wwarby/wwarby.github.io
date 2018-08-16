@@ -12,12 +12,12 @@ export class HomeComponent implements OnInit {
   @ViewChild(NgxImageGalleryComponent) photographyGallery: NgxImageGalleryComponent;
 
   photographyGalleryConfig: GALLERY_CONF = {
-    imageOffset: '10px',
+    imageOffset: '20px',
     showDeleteControl: false,
     showImageTitle: false,
     imageBorderRadius: '0',
     closeOnEsc: true,
-    backdropColor: 'rgba(29, 29, 29)'
+    backdropColor: ''
   };
 
   photographyGalleryImages: GALLERY_IMAGE[] = [];
