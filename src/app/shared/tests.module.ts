@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
 @NgModule({
   exports: [
@@ -14,7 +15,8 @@ import { RouterTestingModule } from '@angular/router/testing';
     RouterModule,
     RouterTestingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxImageGalleryModule
   ],
   declarations: []
 })
