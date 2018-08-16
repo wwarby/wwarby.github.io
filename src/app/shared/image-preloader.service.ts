@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ImagePreloaderService {
 
-  private images: string[] = [];
+  private readonly images: string[] = [];
 
   constructor() { }
 

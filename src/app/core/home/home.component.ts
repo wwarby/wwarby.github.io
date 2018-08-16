@@ -23,7 +23,7 @@ export class HomeComponent {
 
   public photographyGalleryImages: GALLERY_IMAGE[] = [];
 
-  constructor(private preloader: ImagePreloaderService) {
+  constructor(private readonly preloader: ImagePreloaderService) {
 
     const imageCount = 16;
 
