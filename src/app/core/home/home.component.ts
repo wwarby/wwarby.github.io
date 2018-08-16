@@ -1,17 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
-import { padStart } from 'lodash';
+import { padStart, endsWith } from 'lodash';
+import { ImagePreloaderService } from '../../shared/image-preloader.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  @ViewChild(NgxImageGalleryComponent) photographyGallery: NgxImageGalleryComponent;
+  @ViewChild(NgxImageGalleryComponent) public photographyGallery: NgxImageGalleryComponent;
 
-  photographyGalleryConfig: GALLERY_CONF = {
+  public photographyGalleryConfig: GALLERY_CONF = {
     imageOffset: '20px',
     showDeleteControl: false,
     showImageTitle: false,
@@ -20,24 +21,36 @@ export class HomeComponent implements OnInit {
     backdropColor: ''
   };
 
-  photographyGalleryImages: GALLERY_IMAGE[] = [];
+  public photographyGalleryImages: GALLERY_IMAGE[] = [];
 
-  constructor() { }
+  constructor(private preloader: ImagePreloaderService) {
 
-  ngOnInit() {
-    for (let x = 1; x < 17; x++) {
-      const filename = `${padStart(x.toString(), 5, '0')}.jpg`;
+    const imageCount = 16;
+
+    for (let x = 1; x < imageCount + 1; x++) {
       this.photographyGalleryImages.push({
-        url: `assets/photography/large/${filename}`,
+        url: this.numberedImageUrl(x),
         altText: 'Copyright © William Warby',
-        title: '',
-        thumbnailUrl: `assets/photography/thumbnail/${filename}`
+        thumbnailUrl: this.numberedImageUrl(x, true)
       });
+      preloader.preloadImage(this.numberedImageUrl(x, true));
     }
+
+    preloader.preloadImage(this.numberedImageUrl(2));
+    preloader.preloadImage(this.numberedImageUrl(7));
+    preloader.preloadImage(this.numberedImageUrl(16));
   }
 
-  openPhotographyGallery(index: number = 0) {
+  private numberedImageUrl(imageNumber: number, thumbnail = false) {
+    return `assets/photography/${thumbnail ? 'thumbnail' : 'large'}/${padStart(imageNumber.toString(), 5, '0')}.jpg`;
+  }
+
+  public openPhotographyGallery(index: number = 0) {
     this.photographyGallery.open(index);
+  }
+
+  public photographyGalleryOpened() {
+    this.photographyGalleryImages.forEach(x => this.preloader.preloadImage(x.url));
   }
 
 }

@@ -5,13 +5,15 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/material.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
-    NgxImageGalleryModule
+    NgxImageGalleryModule,
+    SharedModule
   ],
   declarations: [
     NotFoundComponent,

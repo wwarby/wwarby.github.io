@@ -20,7 +20,7 @@ import { NgxImageGalleryModule } from 'ngx-image-gallery';
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule.forRoot(),
     CoreModule
   ],
   providers: [],

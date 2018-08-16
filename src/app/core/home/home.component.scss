@@ -173,7 +173,7 @@ header {
 }
 
 ::ng-deep ngx-image-gallery {
-  background: $background !important;
+  background: $gallery-mask-color !important;
 
   .galleria {
     left: 30px !important;
