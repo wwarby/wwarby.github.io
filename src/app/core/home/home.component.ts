@@ -24,14 +24,13 @@ export class HomeComponent {
 
   public photographyGalleryImages: GALLERY_IMAGE[] = [];
 
+  public photographyGalleryImageCount = 16;
+
   constructor(
-    private readonly preloader: ImagePreloaderService,
+    public readonly preloader: ImagePreloaderService,
     public angulartics: Angulartics2
   ) {
-
-    const imageCount = 16;
-
-    for (let x = 1; x < imageCount + 1; x++) {
+    for (let x = 1; x < this.photographyGalleryImageCount + 1; x++) {
       this.photographyGalleryImages.push({
         url: this.numberedImageUrl(x),
         altText: 'Copyright © William Warby',
@@ -40,9 +39,9 @@ export class HomeComponent {
       preloader.preloadImage(this.numberedImageUrl(x, true));
     }
 
+    preloader.preloadImage(this.numberedImageUrl(0));
+    preloader.preloadImage(this.numberedImageUrl(1));
     preloader.preloadImage(this.numberedImageUrl(2));
-    preloader.preloadImage(this.numberedImageUrl(7));
-    preloader.preloadImage(this.numberedImageUrl(16));
   }
 
   private numberedImageUrl(imageNumber: number, thumbnail = false) {

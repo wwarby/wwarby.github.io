@@ -10,9 +10,9 @@ export class ImagePreloaderService {
   constructor() { }
 
   preloadImage(url: string) {
-    if (this.images.indexOf(url) !== -1) { return; }
+    if (this.images.indexOf(url.toLowerCase()) !== -1) { return; }
     const image = new Image();
     image.src = url;
-    this.images.push(url);
+    this.images.push(url.toLowerCase());
   }
 }

@@ -6,8 +6,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @NgModule({
+  imports: [
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+      pageTracking: {
+        clearQueryParams: true,
+        clearHash: true,
+        clearIds: true
+      }
+    })
+  ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
