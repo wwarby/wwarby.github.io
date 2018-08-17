@@ -96,9 +96,12 @@ header {
     border-top: 1px solid $callout-border-color;
     border-bottom: 1px solid $callout-border-color;
 
-    @include screensize(md) {
+    @include screensize(sm) {
       border-radius: 100px;
       border: 1px solid $callout-border-color;
+      min-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     i.fab {

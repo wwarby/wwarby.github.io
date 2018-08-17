@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from 'ngx-image-gallery';
-import { padStart, endsWith } from 'lodash';
+import { padStart } from 'lodash';
 import { ImagePreloaderService } from '../../shared/image-preloader.service';
+import { Angulartics2 } from 'angulartics2';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,10 @@ export class HomeComponent {
 
   public photographyGalleryImages: GALLERY_IMAGE[] = [];
 
-  constructor(private readonly preloader: ImagePreloaderService) {
+  constructor(
+    private readonly preloader: ImagePreloaderService,
+    public angulartics: Angulartics2
+  ) {
 
     const imageCount = 16;
 
@@ -47,6 +51,7 @@ export class HomeComponent {
 
   public openPhotographyGallery(index: number = 0) {
     this.photographyGallery.open(index);
+    this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography/${index}` }});
   }
 
   public photographyGalleryOpened() {

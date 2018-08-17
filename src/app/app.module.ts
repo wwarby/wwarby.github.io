@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,13 @@ import { NgxImageGalleryModule } from 'ngx-image-gallery';
     BrowserModule,
     BrowserAnimationsModule,
     NgxImageGalleryModule,
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+      pageTracking: {
+        clearQueryParams: true,
+        clearHash: true,
+        clearIds: true
+      }
+    }),
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
