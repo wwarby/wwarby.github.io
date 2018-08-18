@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +13,9 @@ export class AppComponent {
 
   constructor(
     public title: Title,
-    public angulartics: Angulartics2GoogleTagManager
+    public angulartics: Angulartics2GoogleAnalytics
   ) {
+
     this.isOnline = navigator.onLine;
     this.title.setTitle('William Warby');
   }
