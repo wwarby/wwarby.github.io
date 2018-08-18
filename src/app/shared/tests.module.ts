@@ -7,16 +7,18 @@ import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   imports: [
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+    Angulartics2Module.forRoot([Angulartics2GoogleTagManager], {
       pageTracking: {
         clearQueryParams: true,
         clearHash: true,
         clearIds: true
-      }
+      },
+      developerMode: !environment.googleAnalyticsProfile
     })
   ],
   exports: [
