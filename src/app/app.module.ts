@@ -9,7 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
     BrowserModule,
     BrowserAnimationsModule,
     NgxImageGalleryModule,
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+    Angulartics2Module.forRoot([Angulartics2GoogleTagManager], {
       pageTracking: {
         clearQueryParams: true,
         clearHash: true,
         clearIds: true
-      }
+      },
+      developerMode: !environment.googleAnalyticsProfile
     }),
     MaterialModule,
     AppRoutingModule,
