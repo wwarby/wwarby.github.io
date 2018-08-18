@@ -48,7 +48,8 @@ export class HomeComponent {
     return `assets/photography/${thumbnail ? 'thumbnail' : 'large'}/${padStart(imageNumber.toString(), 5, '0')}.jpg`;
   }
 
-  public openPhotographyGallery(index: number = 0) {
+  public openPhotographyGallery(index: number = 1) {
+    if (index < 1 || index > this.photographyGalleryImageCount) { index = 1; }
     this.photographyGallery.open(index);
     this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography/${index}` }});
   }

@@ -19,7 +19,7 @@ if (environment.production) {
       'window.dataLayer = window.dataLayer || [];',
       'function gtag() { dataLayer.push(arguments); }',
       'gtag(\'js\', new Date());',
-      `gtag(\'config\, '${environment.googleAnalyticsProfile}');`
+      `gtag(\'config\', '${environment.googleAnalyticsProfile}');`
     ].join('\r\n');
     document.head.appendChild(script);
 
