@@ -39,19 +39,19 @@ export class HomeComponent {
       preloader.preloadImage(this.numberedImageUrl(x, true));
     }
 
-    preloader.preloadImage(this.numberedImageUrl(0));
     preloader.preloadImage(this.numberedImageUrl(1));
     preloader.preloadImage(this.numberedImageUrl(2));
+    preloader.preloadImage(this.numberedImageUrl(3));
   }
 
   private numberedImageUrl(imageNumber: number, thumbnail = false) {
     return `assets/photography/${thumbnail ? 'thumbnail' : 'large'}/${padStart(imageNumber.toString(), 5, '0')}.jpg`;
   }
 
-  public openPhotographyGallery(index: number = 1) {
-    if (index < 1 || index > this.photographyGalleryImageCount) { index = 1; }
-    this.photographyGallery.open(index);
-    this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography/${index}` }});
+  public openPhotographyGallery(photo: number = 1) {
+    if (photo < 1 || photo > this.photographyGalleryImageCount) { photo = 1; }
+    this.photographyGallery.open(photo - 1);
+    this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography/${photo}` }});
   }
 
   public photographyGalleryOpened() {
