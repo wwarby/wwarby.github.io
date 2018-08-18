@@ -15,9 +15,9 @@ export class AppComponent {
     public title: Title,
     public angulartics: Angulartics2GoogleAnalytics
   ) {
-
     this.isOnline = navigator.onLine;
     this.title.setTitle('William Warby');
+    this.angulartics.pageTrack('home');
   }
 
 }
