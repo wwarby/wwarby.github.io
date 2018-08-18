@@ -24,13 +24,30 @@ export class HomeComponent {
 
   public photographyGalleryImages: GALLERY_IMAGE[] = [];
 
-  public photographyGalleryImageCount = 16;
+  public photographyImageLabels = [
+    'swallowtail',
+    'st-pauls',
+    'turtle',
+    'molly-hat',
+    'london-eye',
+    'gherkin',
+    'iceberg',
+    'caterpillar',
+    'gorilla',
+    'valencia',
+    'stitchwort',
+    'pudding-glasses',
+    'death-valley',
+    'hunting-lodge',
+    'zebras',
+    'fireworks'
+  ];
 
   constructor(
     public readonly preloader: ImagePreloaderService,
     public angulartics: Angulartics2
   ) {
-    for (let x = 1; x < this.photographyGalleryImageCount + 1; x++) {
+    for (let x = 1; x <= this.photographyImageLabels.length; x++) {
       this.photographyGalleryImages.push({
         url: this.numberedImageUrl(x),
         altText: 'Copyright © William Warby',
@@ -45,17 +62,23 @@ export class HomeComponent {
   }
 
   private numberedImageUrl(imageNumber: number, thumbnail = false) {
-    return `assets/photography/${thumbnail ? 'thumbnail' : 'large'}/${padStart(imageNumber.toString(), 5, '0')}.jpg`;
+    // tslint:disable-next-line:max-line-length
+    return `assets/photography/${thumbnail ? 'thumbnail' : 'large'}/${padStart(imageNumber.toString(), 3, '0')}-${this.photographyImageLabels[imageNumber - 1]}.jpg`;
   }
 
-  public openPhotographyGallery(photo: number = 1) {
-    if (photo < 1 || photo > this.photographyGalleryImageCount) { photo = 1; }
-    this.photographyGallery.open(photo - 1);
-    this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography/${photo}` }});
+  public openPhotographyGallery(index: number = 0) {
+    if (index < 0 || index > this.photographyGalleryImages.length - 1) { index = 0; }
+    this.photographyGallery.open(index);
+    this.angulartics.eventTrack.next({ action: 'open', properties: { category: 'gallery', label: `portfolio/photography` }});
+    this.angulartics.eventTrack.next({ action: 'view', properties: { category: 'photo', label: `${this.photographyImageLabels[index]}` }});
   }
 
   public photographyGalleryOpened() {
     this.photographyGalleryImages.forEach(x => this.preloader.preloadImage(x.url));
+  }
+
+  public photographyGalleryImageChanged(index: number) {
+    this.angulartics.eventTrack.next({ action: 'view', properties: { category: 'photo', label: `${this.photographyImageLabels[index]}` }});
   }
 
 }

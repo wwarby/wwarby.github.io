@@ -14,12 +14,12 @@ export class HomePage {
 
   public clickPhoto(photo: 'left' | 'middle' | 'right') {
     element(by.css(`app-root .photography img.${photo}`)).click();
-    browser.sleep(50);
+    browser.sleep(100);
   }
 
   public closeGallery() {
     element(by.css('ngx-image-gallery .close')).click();
-    browser.sleep(50);
+    browser.sleep(100);
   }
 
   public getActiveImageSrc() {

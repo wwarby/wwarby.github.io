@@ -32,12 +32,12 @@ describe('HomeComponent', () => {
   }));
 
   it('should create the gallery', () => {
-    expect(component.photographyGalleryImages.length).toBe(component.photographyGalleryImageCount);
+    expect(component.photographyGalleryImages.length).toBe(component.photographyImageLabels.length);
   });
 
   it('should create valid image paths', () => {
-    expect(component.photographyGalleryImages[0].url).toBe('assets/photography/large/00001.jpg');
-    expect(component.photographyGalleryImages[10].url).toBe('assets/photography/large/00011.jpg');
+    expect(component.photographyGalleryImages[0].url).toBe('assets/photography/large/001-swallowtail.jpg');
+    expect(component.photographyGalleryImages[15].url).toBe('assets/photography/large/016-fireworks.jpg');
   });
 
   it('should call photographyGalleryOpened', () => {
@@ -55,6 +55,6 @@ describe('HomeComponent', () => {
   it('should preload images when gallery opens', () => {
     const spy = spyOn(component.preloader, 'preloadImage');
     component.openPhotographyGallery();
-    expect(spy).toHaveBeenCalledTimes(component.photographyGalleryImageCount);
+    expect(spy).toHaveBeenCalledTimes(component.photographyGalleryImages.length);
   });
 });
