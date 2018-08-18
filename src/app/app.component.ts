@@ -17,7 +17,6 @@ export class AppComponent {
   ) {
     this.isOnline = navigator.onLine;
     this.title.setTitle('William Warby');
-    this.angulartics.pageTrack('home');
   }
 
 }
