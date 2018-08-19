@@ -55,6 +55,6 @@ describe('HomeComponent', () => {
   it('should preload images when gallery opens', () => {
     const spy = spyOn(component.preloader, 'preloadImage');
     component.openPhotographyGallery();
-    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenCalledTimes(6);
   });
 });
