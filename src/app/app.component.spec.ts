@@ -1,6 +1,6 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { TestsModule } from './shared/tests.module';
+import { TestsModule } from './tests/tests.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
