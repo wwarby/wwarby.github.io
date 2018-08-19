@@ -48,6 +48,6 @@
 <ngx-image-gallery
   [images]="photographyGalleryImages"
   [conf]="photographyGalleryConfig"
-  (onOpen)="photographyGalleryOpened()"
+  (onOpen)="photographyGalleryOpened($event)"
   (onImageChange)="photographyGalleryImageChanged($event)">
 </ngx-image-gallery>
