@@ -13,6 +13,6 @@ export class TrackLinkDirective {
     });
   }
 
-  constructor(private el: ElementRef, private angulartics: Angulartics2) { }
+  constructor(private readonly el: ElementRef, private readonly angulartics: Angulartics2) { }
 
 }
