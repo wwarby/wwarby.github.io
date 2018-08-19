@@ -23,7 +23,7 @@ branches:
 before_script:
   # set -e causes the script to exit as soon as one command returns a non-zero exit code
   # set -v makes the shell print all lines in the script before executing them, which helps identify which steps failed
-  - set -ev
+  - set -v
   - npm install
   - npm install -g ts-node
   # Create a GUI environment to run ng e2e
