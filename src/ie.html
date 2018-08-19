@@ -1,25 +1,40 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Unsupported Browser</title>
-  <link rel="shortcut icon" href="assets/favicon/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-  <style>
-    body { background: #292929; color: #fff; font-family: Roboto, Helvetica, Arial, sans-serif; margin: 2em; font-weight: 100; }
-    h1 { font-weight: 100; }
-  </style>
-</head>
-<body>
-  <h1>Internet Explorer is harmful to the mental health of developers</h1>
-  <p>
-    Jokes aside, it is hard work to get even the simplest modern website to work in Internet Explorer without resorting to hacks, workarounds,
-    pollyfills and outmoded development techniques because Microsoft have never kept pace with support for the open
-    standards supported by other browser vendors and relied upon by developers.
-  </p>
-  <p>
-    If this page starts showing up in my analytics with any regularity I might put in the effort to make it work, but for now please consider
-    using Chrome, Safari, Firefox, Edge or Opera.
-  </p>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Unsupported Browser</title>
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <style>
+      body {
+        background: #292929;
+        color: #fff;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        margin: 2em;
+        font-weight: 100;
+        font-size: 14px;
+      }
+      h1 { font-weight: 100; font-size: 36px; }
+      @media only all and (min-width: 480px) {
+        h1 { font-size: 48px; }
+        body { font-size: 16px; }
+      }
+      @media only all and (min-width: 768px) {
+        h1 { font-size: 64px; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Internet Explorer is a bad browser</h1>
+    <p>
+      Every version of Internet Explorer up to and including 11 is riddled with bugs and lacking in support for features
+      and open standards found in every other major browser which developers rely on. It's JavaScript engine is slow,
+      it's developer tools are complete shit and it's not available for Mac OS. For these reasons it is tedious and time
+      consuming work to make even the simplest modern website to work in Internet Explorer without resorting to hacks,
+      workarounds, pollyfills and outdated development techniques. I'm sorry if you are forced to use this terrible
+      browser by your employer and cannot access the site. If this page starts showing up in my analytics with any
+      regularity I might put in the effort to support Internet Explorer, but for now please consider using Chrome, Safari,
+      Firefox, Edge or Opera if you have the option.
+    </p>
+  </body>
 </html>
