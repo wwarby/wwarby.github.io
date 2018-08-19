@@ -73,12 +73,19 @@ export class HomeComponent {
     this.angulartics.eventTrack.next({ action: 'view', properties: { category: 'photo', label: `${this.photographyImageLabels[index]}` }});
   }
 
-  public photographyGalleryOpened() {
-    this.photographyGalleryImages.forEach(x => this.preloader.preloadImage(x.url));
+  public photographyGalleryOpened(index: number) {
+    this.preloadNextImages(index, 2);
   }
 
   public photographyGalleryImageChanged(index: number) {
     this.angulartics.eventTrack.next({ action: 'view', properties: { category: 'photo', label: `${this.photographyImageLabels[index]}` }});
+    this.preloadNextImages(index, 2);
+  }
+
+  private preloadNextImages(index: number, quantity: number) {
+    for (let x = Math.max(0, index - quantity); x <= Math.min(this.photographyGalleryImages.length - 1, index + quantity); x++) {
+      this.preloader.preloadImage(this.photographyGalleryImages[x].url);
+    }
   }
 
 }
