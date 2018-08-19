@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/.htaccess"
+              "src/.htaccess",
+              "src/ie.html"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
