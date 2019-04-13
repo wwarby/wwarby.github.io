@@ -21,7 +21,7 @@ import { AppLoadModule } from './app-load/app-load.module';
     BrowserModule,
     BrowserAnimationsModule,
     NgxImageGalleryModule,
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+    Angulartics2Module.forRoot({
       pageTracking: {
         clearQueryParams: true,
         clearHash: true,

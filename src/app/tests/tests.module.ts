@@ -8,12 +8,11 @@ import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '../../environments/environment';
 
 @NgModule({
   imports: [
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], {
+    Angulartics2Module.forRoot({
       pageTracking: {
         clearQueryParams: true,
         clearHash: true,
