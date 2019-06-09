@@ -11,7 +11,7 @@ import { Angulartics2 } from 'angulartics2';
 })
 export class HomeComponent {
 
-  @ViewChild(NgxImageGalleryComponent) public photographyGallery: NgxImageGalleryComponent;
+  @ViewChild(NgxImageGalleryComponent, {static: true}) public photographyGallery: NgxImageGalleryComponent;
 
   public photographyGalleryConfig: GALLERY_CONF = {
     imageOffset: '20px',
