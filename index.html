@@ -23,32 +23,32 @@
       <div class="connect">
         <ul>
           <li>
-            <a href="https://github.com/wwarby" title="GitHub" onclick="link('https://github.com/wwarby'); return false;">
+            <a href="https://github.com/wwarby" title="GitHub" onclick="getOutboundLink('https://github.com/wwarby'); return false;">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="https://uk.linkedin.com/in/wwarby" title="Linked In" onclick="link('https://uk.linkedin.com/in/wwarby'); return false;">
+            <a href="https://uk.linkedin.com/in/wwarby" title="Linked In" onclick="getOutboundLink('https://uk.linkedin.com/in/wwarby'); return false;">
               <i class="fab fa-linkedin"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.flickr.com/photos/wwarby" title="Flickr" onclick="link('https://www.flickr.com/photos/wwarby'); return false;">
+            <a href="https://www.flickr.com/photos/wwarby" title="Flickr" onclick="getOutboundLink('https://www.flickr.com/photos/wwarby'); return false;">
               <i class="fab fa-flickr"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/wwarby" title="Instagram" onclick="link('https://www.instagram.com/wwarby'); return false;">
+            <a href="https://www.instagram.com/wwarby" title="Instagram" onclick="getOutboundLink('https://www.instagram.com/wwarby'); return false;">
               <i class="fab fa-instagram"></i>
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/wwarby" title="Twitter" onclick="link('https://twitter.com/wwarby'); return false;">
+            <a href="https://twitter.com/wwarby" title="Twitter" onclick="getOutboundLink('https://twitter.com/wwarby'); return false;">
               <i class="fab fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.strava.com/athletes/22576786" title="Strava" onclick="link('https://www.strava.com/athletes/22576786'); return false;">
+            <a href="https://www.strava.com/athletes/22576786" title="Strava" onclick="getOutboundLink('https://www.strava.com/athletes/22576786'); return false;">
               <i class="fab fa-strava"></i>
             </a>
           </li>
@@ -61,8 +61,13 @@
       function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'UA-46214585-1');
-      function link(url) {
-        gtag('event', 'click', { 'event_category': 'outbound', 'event_label': url, 'transport_type': 'beacon', 'event_callback': function() { document.location = url; } });
+      var getOutboundLink = function(url) {
+        gtag('event', 'click', {
+          'event_category': 'outbound',
+          'event_label': url,
+          'transport_type': 'beacon',
+          'event_callback': function(){document.location = url;}
+        });
       }
     </script>
   </body>
