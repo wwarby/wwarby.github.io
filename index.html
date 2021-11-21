@@ -61,7 +61,7 @@
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'UA-46214585-1');
-      const captureOutboundLink = function(url) {
+      const link = function(url) {
         gtag('send', 'event', 'outbound', 'click', '/external/' + url, { 'transport': 'beacon', 'hitCallback': function(){ document.location = url; } });
       }
     </script>
