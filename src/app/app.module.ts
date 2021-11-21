@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '../environments/environment';
 import { AppLoadModule } from './app-load/app-load.module';
 

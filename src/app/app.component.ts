@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { LoadTimerService } from './core/load-timer.service';
 
 @Component({
