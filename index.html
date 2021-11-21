@@ -58,11 +58,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46214585-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'UA-46214585-1');
-      const link = function(url) {
-        gtag('send', 'event', 'outbound', 'click', '/external/' + url, { 'transport': 'beacon', 'hitCallback': function(){ document.location = url; } });
+      function link(url) {
+        gtag('event', 'click', { 'event_category': 'outbound', 'event_label': url, 'transport_type': 'beacon', 'event_callback': function() { document.location = url; } });
       }
     </script>
   </body>
