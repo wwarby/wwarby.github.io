@@ -51,7 +51,6 @@
     "@angular/platform-browser-dynamic": "8.0.0",
     "@angular/router": "8.0.0",
     "@fortawesome/fontawesome-free": "5.15.4",
-    "angular-in-memory-web-api": "0.11.0",
     "angulartics2": "11.0.0",
     "core-js": "3.1.3",
     "hammerjs": "2.0.8",
